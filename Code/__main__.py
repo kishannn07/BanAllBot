@@ -1,5 +1,5 @@
 import logging
-from . import bot
+from Code.bot import bot
 from pyrogram import Client, idle
 from pyrogram import filters
 
