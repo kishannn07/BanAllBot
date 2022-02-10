@@ -3,21 +3,15 @@
 from pyrogram import Client,filters
 import logging
 import os
+from decouple import config
+from heroku3 import from_key
+from os import getenv
 
-class Config:
-    TELEGRAM_TOKEN=os.environ['TELEGRAM_TOKEN']
-    TELEGRAM_APP_HASH=os.environ['TELEGRAM_APP_HASH']
-    TELEGRAM_APP_ID=int(os.environ['TELEGRAM_APP_ID'])
-
-    if not TELEGRAM_TOKEN:
-        raise ValueError('TELEGRAM BOT TOKEN not set')
-    
-    if not TELEGRAM_APP_HASH:
-        raise ValueError("TELEGRAM_APP_HASH not set, set it first")
-
-    if not TELEGRAM_APP_ID:
-        raise ValueError("TELEGRAM_APP_ID not set, set it first")
-
+class Var:
+    API_KEY = config("API_KEY", default=6, cast=int, "3898418")
+    API_HASH = config("API_HASH", "5a82313211da04d63297bd4de436228c")
+    TOKEN = config("TOKEN", "5200251156:AAH1Xq-2E3IggbFVY7XtWE-Cvioj5mwS43o")
+    OWNER_ID = list(map(int, getenv("OWNER_ID", "5125042013").split()))
     
 
 logging.basicConfig(
@@ -28,7 +22,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 bot=Client(
            ":memory:",
-           api_id=Config.TELEGRAM_APP_ID,
-           api_hash=Config.TELEGRAM_APP_HASH,
-           bot_token=Config.TELEGRAM_TOKEN
+           api_id=var.API_KEY,
+           api_hash=var.APP_HASH,
+           bot_token=var.TOKEN
 )
