@@ -20,9 +20,3 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-bot=Client(
-           ":memory:",
-           api_id=var.API_KEY,
-           api_hash=var.APP_HASH,
-           bot_token=var.TOKEN
-)
