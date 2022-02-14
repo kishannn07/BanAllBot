@@ -8,10 +8,10 @@ from heroku3 import from_key
 from os import getenv
 
 class Var:
-    API_KEY = config("API_KEY", default=6, cast=int, "3898418")
-    API_HASH = config("API_HASH", "5a82313211da04d63297bd4de436228c")
-    TOKEN = config("TOKEN", "5200251156:AAH1Xq-2E3IggbFVY7XtWE-Cvioj5mwS43o")
-    OWNER_ID = list(map(int, getenv("OWNER_ID", "5125042013").split()))
+    API_KEY = config("API_KEY", default=6, cast=int, "15257107")
+    API_HASH = config("API_HASH", "ce4441ebf27e3591d3d3c1632e783d7a")
+    TOKEN = config("TOKEN", "5042510749:AAGQlDtZa4hw2SsDNvefKoBwLsxpwKAIzaw")
+    OWNER_ID = list(map(int, getenv("OWNER_ID", "5042510749").split()))
     
 
 logging.basicConfig(
